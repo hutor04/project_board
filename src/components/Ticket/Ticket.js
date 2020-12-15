@@ -21,8 +21,12 @@ const Body = styled.p`
   width: 100%;
 `;
 
-const Ticket = ({ ticket, marginRight }) => (
-  <TicketWrapper marginRight={marginRight}>
+const Ticket = ({ ticket, marginRight, onDragStart }) => (
+  <TicketWrapper
+    draggable
+    onDragStart={e => onDragStart(e, ticket.id)}
+    marginRight={marginRight}
+  >
     <Title>{ticket.title}</Title>
     <Body>{ticket.body}</Body>
   </TicketWrapper>
